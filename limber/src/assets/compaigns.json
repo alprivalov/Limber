@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Fonctionnalité 1",
+    "tags": ["Digital", "Webinar"],
+    "avatar": "avatar1.jpg",
+    "shares": 10,
+    "shares_pending": 5,
+    "clicks": 11,
+    "contacts": 55
+  },
+  {
+    "id": 2,
+    "name": "Fonctionnalité 2",
+    "tags": ["Digital", "Limber"],
+    "avatar": "avatar2.jpg",
+    "shares": 9,
+    "shares_pending": 4,
+    "clicks": 1123,
+    "contacts": 37
+  },
+  {
+    "id": 3,
+    "name": "Fonctionnalité 3",
+    "tags": ["Digital", "Webinar", "Limber"],
+    "avatar": "avatar3.jpg",
+    "shares": 6,
+    "shares_pending": 5,
+    "clicks": 12,
+    "contacts": 35
+  },
+  {
+    "id": 4,
+    "name": "Fonctionnalité 4",
+    "tags": ["Digital", "Webinar", "Limber"],
+    "avatar": "avatar4.jpg",
+    "shares": 4,
+    "shares_pending": 5,
+    "clicks": 15,
+    "contacts": 34
+  },
+  {
+    "id": 5,
+    "name": "Fonctionnalité 5",
+    "tags": ["Digital", "Webinar", "Limber"],
+    "avatar": "avatar5.jpg",
+    "shares": 1,
+    "shares_pending": 6,
+    "clicks": 21,
+    "contacts": 55
+  }
+]

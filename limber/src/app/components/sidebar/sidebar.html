@@ -1,0 +1,13 @@
+<aside class="sidebar">
+  <div class="logo mb-4">
+    <img src="assets/logo-limber.png" alt="Limber" width="90" />
+  </div>
+  <ul class="nav flex-column">
+    <li *ngFor="let item of menu" [class.active]="item.active" class="nav-item">
+      <span class="icon me-2">
+        <i class="bi" [ngClass]="'bi-' + item.icon"></i>
+      </span>
+      {{ item.label }}
+    </li>
+  </ul>
+</aside>
