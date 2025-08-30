@@ -12,6 +12,15 @@
   border-radius: 40px; /* arrondi léger */
 }
 
+
+.sidebar .nav-link.active {
+  background-color: rgba(0, 113, 128, 0.1); /* ton fond bleu clair */
+  color: #006b75;                           /* couleur du texte/icon */
+  font-weight: 600;
+  border-radius: 9999px;                    /* arrondi max (pill / pastille) */
+  padding: 0.5rem 1rem;                     /* espace autour du texte */
+}
+
 .nav-link.active,
 .nav-link:hover {
   background: rgba(238, 244, 246, 1);

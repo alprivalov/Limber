@@ -1,30 +1,58 @@
-/* fond crème de la page */
-.page { background: #f7f3ef; border-radius: 16px; }
+/* ===== Fond page ===== */
+.page {
+  background: #f7f3ef;
+  border-radius: 16px;
+}
 
-/* carte tableau */
-.card { border: 0; border-radius: 16px; overflow: hidden; }
-.thead-light { background: #ffffff; }
+/* ===== Carte tableau ===== */
+.card {
+  border: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
 
-/* badges rouges “subtle” */
+.thead-light {
+  background: #ffffff;
+}
+
+/* ====== TABLE  ====== */
+/* Corps : séparation par le bas de chaque ligne */
+
+.table tbody tr:last-child {
+  border-bottom: 1px solid #fff;
+}
+
+/* En-têtes */
+.table thead th {
+  color: rgba(79, 79, 79, 1);
+  font-weight: 600;
+  font-size: 14px;
+  padding-bottom: 30px; 
+}
+
+.table td {
+  font-weight: 600;
+  color: rgba(79,79,79,1);   
+}
+
+/* 2) Le texte "(x en attente)" */
+.table td .text-muted {
+  color: rgba(151, 151, 151, 1) !important;  
+  font-weight: 400;                           
+  font-size: .875rem;                         
+}
+
+
+/* ===== Badges rouges ===== */
 .badge-red {
   background: rgba(217, 94, 84, 1);
-  color: rgba(255, 255, 255, 1);
+  color: #fff;
   font-weight: 600;
   padding: .35rem .6rem;
+  border-radius: 6px;
 }
 
-
-/* boutons teal des actions */
-.btn-primary {
-  width: 45;
-  height: 37;
-  top: 333px;
-  left: 1221px;
-  opacity: 1;
-
-  background-color: rgba(42, 122, 147, 1);
-}
-
+/* ===== Boutons ===== */
 .btn-teal {
   background-color: #2c8590;
   border: none;
@@ -37,35 +65,33 @@
   justify-content: center;
   padding: 0;
 }
+.btn-teal:hover { background-color: #256d75; }
 
-.btn-teal:hover {
-  background-color: #256d75;
+.btn-compagne {
+  background-color: rgba(217, 94, 84, 1);
+  height: 44px;
+  color: #fff;
+  border: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 6px 14px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease-in-out;
 }
+.btn-compagne:hover { background-color: rgba(200, 80, 70, 1); }
+.btn-compagne:active { background-color: rgba(180, 70, 60, 1); }
 
-
-.table tbody tr {
-  border-bottom: 1px solid #dee2e6; /* gris clair Bootstrap */
-}
-
-.table tbody tr:last-child {
-  border-bottom: 1px solid #ffffff; /* réactive la bordure de la dernière ligne */
-}
-
-
-.custom-tabs {
-  display: flex;
-  align-items: center;
-}
+/* ===== Tabs (Campagnes / Mots-clés) ===== */
+.custom-tabs { display: flex; align-items: center; }
 
 .custom-tabs .nav-item {
-  margin: 0;
-}
-
-.form-control{
-  height: 44px;
-}
-.form-select {
-  height: 44px;
+   margin: 0; 
+  font-weight: 500;
+  font-size: 22px;
+  line-height: 100%;
+  letter-spacing: 0%;
+  vertical-align: middle;
+  color: rgba(79, 79, 79, 1);
 }
 
 .custom-tabs .nav-link {
@@ -76,12 +102,7 @@
   padding: 0.5rem 0;
   position: relative;
 }
-
-.custom-tabs .nav-link.active {
-  color: #000;
-  font-weight: 600;
-}
-
+.custom-tabs .nav-link.active { color: rgba(79, 79, 79, 1); font-weight: 600; }
 .custom-tabs .nav-link.active::after {
   content: "";
   position: absolute;
@@ -92,8 +113,7 @@
   background-color: #2a8fa8;
   border-radius: 2px;
 }
-
-/* Séparateur */
+/* Séparateur vertical */
 .custom-tabs .nav-separator {
   width: 1px;
   height: 20px;
@@ -101,28 +121,38 @@
   margin: 0 0.75rem;
 }
 
+/* ===== Formulaires (select + input) ===== */
+.form-control,
+.form-select { height: 44px; }
 
-
-.page-size-btn{
-  background: rgba(253, 253, 255, 1);
-  border: rgba(235, 235, 235, 1);
-  color:#444;
-  border-radius:10px;
-  padding:.35rem .6rem;
-  font-weight:500;
+.custom-select-grey {
+  color: rgba(151, 151, 151, 1);
+  font-weight: 400;
+  font-size: 14px;
 }
-.page-size-btn:focus{
-  outline:0;
-  box-shadow:none;
-}
-
-.dropdown-menu{ min-width:auto; }
-.dropdown-item.active{
-  background:#eaf3f7;
-  color:#0b5560;
+.custom-input-grey::placeholder {
+  color: rgba(151, 151, 151, 1);
+  opacity: 1; 
 }
 
+/* ===== Dropdown (taille par page) ===== */
+.page-size-btn {
+  background: #fdfdff;
+  border: 1px solid rgba(235, 235, 235, 1);
+  color: rgba(79, 79, 79, 1);
+  padding: .35rem .6rem;
+  font-weight: 500;
+  border-radius: 6px;
+}
+.page-size-btn:focus { outline: 0; box-shadow: none; }
 
+.dropdown-menu { min-width: auto; }
+.dropdown-item.active {
+  background: rgba(235, 235, 235, 1);
+  color: rgba(151, 151, 151, 1);
+}
+
+/* ===== Pagination ===== */
 .pagination-mini .btn {
   background: #fafafa;
   border: 1px solid #eee;
@@ -131,41 +161,42 @@
   font-weight: 500;
   min-width: 36px;
 }
+.pagination-mini .btn:disabled { opacity: 0.5; }
+.pagination-mini .btn i { font-size: 0.9rem; }
 
-.pagination-mini .btn:disabled {
-  opacity: 0.5;
-}
-
-.pagination-mini .btn i {
-  font-size: 0.9rem;
-}
-
-
-.btn-compagne {
-  background-color: rgba(217, 94, 84, 1);
-  color: #fff;
+.pagination-ghost .btn-ghost {
   border: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  padding: 6px 14px;
-  border-radius: 6px;
-  transition: background-color 0.2s ease-in-out;
+  box-shadow: none;
+  padding: .35rem .6rem;
+}
+.pagination-ghost .btn-ghost:hover { background: #eee; }
+
+.test{
+  background-color: red;
 }
 
-.btn-compagne:hover {
-  background-color: rgba(200, 80, 70, 1);
+.page-indicator {
+  padding: .35rem .6rem;
+  background: rgba(253, 253, 255, 1);
+  border: 1px solid rgba(235, 235, 235, 1);
+  border-radius: 8px;
+  font-size: 0.875rem;
+  color: rgba(79, 79, 79, 1);
 }
 
-.btn-compagne:active {
-  background-color: rgba(180, 70, 60, 1);
+/* ===== Titre campagne ===== */
+.campaign-title{
+  font-weight: 600;                  
+  font-size: 15px;                   
+  line-height: 1;                    
+  letter-spacing: 0;                 
+  color: rgba(79,79,79,1);          
+  margin-bottom: 10px;               
 }
 
-.campaign-title {
-  font-family: 'Avenir Next Pro', Arial, sans-serif;
-  font-size: 18px;
-  font-weight: 700;   /* passe de 600 → 700 pour être plus gras */
-  color: rgba(79, 79, 79, 1); /* #4F4F4F */
-  line-height: 1;
+/* Lisse le rendu de toutes les polices (utile sur Linux/Windows) */
+html, body{
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
 }
-
-

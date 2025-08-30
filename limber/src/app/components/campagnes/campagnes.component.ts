@@ -10,7 +10,7 @@ import { ThousandSepPipe } from '../../shared/thousand-sep-pipe';
   standalone: true,
   imports: [CommonModule, FormsModule, ThousandSepPipe],
   templateUrl: './campagnes.component.html',
-  styleUrls: ['./campagnes.component.css']
+  styleUrls: ['./campagnes.component.css'],
 })
 export class CampagnesComponent implements OnInit {
   // Données
@@ -20,36 +20,36 @@ export class CampagnesComponent implements OnInit {
   q = '';
 
   // Pagination
-  pageSizeOptions = [10, 20, 30];
-  pageSize = 10;
+  pageSizeOptions = [5, 10, 20];
+  pageSize = 5;
   currentPage = 1;
 
   constructor(private campaignsService: CampaignsService) {}
 
   ngOnInit(): void {
     this.campaignsService.getCampaigns().subscribe({
-      next: data => {
+      next: (data) => {
         this.campagnes = data;
-        // Sécurité : si moins d'items après filtre/changement, on revient sur une page valide
-        if (this.currentPage > this.totalPages) this.currentPage = this.totalPages;
+        if (this.currentPage > this.totalPages) {
+          this.currentPage = this.totalPages;
+        }
       },
-      error: err => console.error('Erreur chargement campaigns.json', err)
+      error: (err) => console.error('Erreur chargement campaigns.json', err),
     });
   }
-
-  // --- Filtres & Pagination ---
 
   /** Liste filtrée par la recherche */
   get filtered(): Campaign[] {
     const q = this.q.toLowerCase().trim();
-    return this.campagnes.filter(c =>
-      !q ||
-      c.name.toLowerCase().includes(q) ||
-      c.tags.some(t => t.toLowerCase().includes(q))
+    return this.campagnes.filter(
+      (c) =>
+        !q ||
+        c.name.toLowerCase().includes(q) ||
+        c.tags.some((t) => t.toLowerCase().includes(q))
     );
   }
 
-  /** Nombre total de pages selon pageSize et filtrage */
+  /** Nombre total de pages */
   get totalPages(): number {
     return Math.max(1, Math.ceil(this.filtered.length / this.pageSize));
   }
@@ -60,7 +60,7 @@ export class CampagnesComponent implements OnInit {
     return this.filtered.slice(start, start + this.pageSize);
   }
 
-  /** Libellé "x–y sur N" si besoin */
+  /** Libellé "x–y sur N" */
   get rangeLabel(): string {
     if (this.filtered.length === 0) return '0–0 sur 0';
     const start = (this.currentPage - 1) * this.pageSize + 1;
@@ -68,10 +68,10 @@ export class CampagnesComponent implements OnInit {
     return `${start}–${end} sur ${this.filtered.length}`;
   }
 
-  /** Changement du nombre de résultats par page (via dropdown) */
+  /** Changement du nombre de résultats par page */
   onPageSizeChange(opt: number): void {
     this.pageSize = opt;
-    this.currentPage = 1; // on repart page 1
+    this.currentPage = 1;
   }
 
   /** Page précédente / suivante */
@@ -82,7 +82,7 @@ export class CampagnesComponent implements OnInit {
     if (this.currentPage < this.totalPages) this.currentPage++;
   }
 
-  /** TrackBy pour *ngFor (performances) */
+  /** TrackBy pour *ngFor (perf) */
   trackById(_: number, c: Campaign): number {
     return c.id;
   }

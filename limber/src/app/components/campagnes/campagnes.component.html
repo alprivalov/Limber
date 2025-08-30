@@ -8,20 +8,24 @@
         <li class="nav-separator" aria-hidden="true"></li>
         <li class="nav-item"><a class="nav-link">Mots-clés</a></li>
       </ul>
-      <button class="btn btn-compagne  ms-3">Nouvelle campagne</button>
 
+      <button class="btn btn-compagne ms-3">Nouvelle campagne</button>
     </div>
 
     <!-- Droite -->
     <div class="d-flex align-items-center gap-2">
-      <select class="form-select form-select-sm" style="width:180px;">
+      <select class="form-select form-select-sm custom-select-grey" style="width:180px;">
         <option>Date de création. desc.</option>
       </select>
+
       <div class="input-group input-group-sm" style="width:200px;">
-        <input [(ngModel)]="q"
-              type="text"
-              class="form-control"
-              placeholder="Rechercher...">
+        <input
+          [(ngModel)]="q"
+          type="text"
+          class="form-control custom-input-grey"
+          placeholder="Rechercher..."
+          aria-label="Rechercher"
+        />
         <span class="input-group-text bg-white">
           <i class="bi bi-search"></i>
         </span>
@@ -30,71 +34,78 @@
   </div>
 
   <!-- Tableau -->
-  <div class="card shadow-sm">
+  <div class="card shadow-sm ">
     <div class="card-body p-4">
       <table class="table align-middle mb-0">
-        <thead class="thead-light small text-muted">
+        <thead class="thead-light small p-3 borde text-muted">
           <tr>
-            <th class="ps-4">Nom</th>
+            <th class="ps-0">Nom</th>
             <th></th>
-            <th>Partages</th>
-            <th>Clics</th>
-            <th>Contacts</th>
+            <th class="text-center align-middle">Partages</th>
+            <th class="text-center align-middle">Clics</th>
+            <th class="text-center align-middle">Contacts</th>
+            <th></th>
           </tr>
         </thead>
 
-        <tbody>
-          <tr *ngFor="let c of paged"> 
+        <tbody >
+          <tr *ngFor="let c of paged">
             <!-- Nom + tags -->
-          <td class="ps-4 py-3">
-            <div class="fw-semibold campaign-title">{{ c.name }}</div>
-            <div class="d-flex flex-wrap gap-2 mt-1">
-              <span *ngFor="let t of c.tags" class="badge badge-red">{{ t }}</span>
-            </div>
-          </td>
-
+            <td class="ps-0 py-3">
+              <div class="campaign-title">{{ c.name }}</div>
+              <div class="d-flex flex-wrap gap-2 mt-1">
+                <span *ngFor="let t of c.tags" class="badge badge-red">{{ t }}</span>
+              </div>
+            </td>
 
             <!-- Avatar -->
             <td>
               @if (c.avatar) {
-                <img [src]="'assets/avatars/' + c.avatar"
-                    class="rounded-circle"
-                    width="50" height="50"
-                    alt=" ">
+                <img
+                  [src]="'assets/avatars/' + c.avatar"
+                  class="rounded-circle"
+                  width="50"
+                  height="50"
+                  alt=" "
+                />
               }
             </td>
 
             <!-- Partages -->
-            <td>
+            <td class="text-center align-middle">
               <div class="fw-semibold">{{ c.shares }}</div>
-              <div class="text-muted small" *ngIf="c.shares_pending">
-                ({{ c.shares_pending }} en attente)
-              </div>
+              @if (c.shares_pending) {
+                <div class="text-muted small">({{ c.shares_pending }} en attente)</div>
+              }
             </td>
 
             <!-- Clics / Contacts -->
-            <td>{{ c.clicks   | thousandSep }}</td>
-            <td>{{ c.contacts | thousandSep }}</td>
+            <td class="text-center align-middle">{{ c.clicks   | thousandSep }}</td>
+            <td class="text-center align-middle">{{ c.contacts | thousandSep }}</td>
 
             <!-- Actions -->
-            <td class="pe-4 text-end">
+            <td class="pe-0 text-end">
               <div class="d-flex justify-content-end gap-2">
-                <button class="btn btn-teal btn-sm"><i class="bi bi-share-fill"></i></button>
-                <button class="btn btn-teal btn-sm"><i class="bi bi-pencil-fill"></i></button>
-                <button class="btn btn-teal btn-sm"><i class="bi bi-gear-fill"></i></button>
+                <button class="btn btn-teal btn-sm" aria-label="Partager"><i class="bi bi-share-fill"></i></button>
+                <button class="btn btn-teal btn-sm" aria-label="Éditer"><i class="bi bi-pencil-fill"></i></button>
+                <button class="btn btn-teal btn-sm" aria-label="Paramètres"><i class="bi bi-gear-fill"></i></button>
               </div>
             </td>
           </tr>
         </tbody>
       </table>
-      <div class="d-flex align-items-center justify-content-between p-3 border-top small">
+
+      <!-- Footer : sélecteur page size + pagination -->
+      <div class="d-flex align-items-center justify-content-between pt-3 small table-footer">
+        <!-- Résultats par page -->
         <div class="d-flex align-items-center gap-2">
           <div class="dropdown">
             <button
               class="btn btn-sm page-size-btn dropdown-toggle"
               type="button"
               data-bs-toggle="dropdown"
-              aria-expanded="false">
+              aria-expanded="false"
+            >
               {{ pageSize }} Résultats par page
             </button>
             <ul class="dropdown-menu">
@@ -102,7 +113,8 @@
                 <button
                   class="dropdown-item"
                   [class.active]="opt === pageSize"
-                  (click)="onPageSizeChange(opt)">
+                  (click)="onPageSizeChange(opt)"
+                >
                   {{ opt }}
                 </button>
               </li>
@@ -110,24 +122,31 @@
           </div>
         </div>
 
-        <!-- Pagination -->
-        <div class="btn-group pagination-mini">
-          <button class="btn btn-light btn-sm"
-                  [disabled]="currentPage === 1"
-                  (click)="prevPage()">
+        <!-- Pagination mini -->
+        <div class="btn-group pagination-ghost">
+          <!-- Flèche gauche visible seulement si page > 1 -->
+          <button
+            *ngIf="currentPage > 1"
+            class="btn btn-ghost btn-sm"
+            (click)="prevPage()"
+            aria-label="Page précédente"
+          >
             <i class="bi bi-chevron-left"></i>
           </button>
-          <button class="btn btn-light btn-sm disabled">
-            {{ currentPage }}/{{ totalPages }}
-          </button>
-          <button class="btn btn-light btn-sm"
-                  [disabled]="currentPage === totalPages"
-                  (click)="nextPage()">
+
+          <span class="page-indicator">{{ currentPage }} / {{ totalPages }}</span>
+
+          <!-- Flèche droite visible seulement si pas à la dernière page -->
+          <button
+            *ngIf="currentPage < totalPages"
+            class="btn btn-ghost btn-sm"
+            (click)="nextPage()"
+            aria-label="Page suivante"
+          >
             <i class="bi bi-chevron-right"></i>
           </button>
         </div>
       </div>
-
     </div>
   </div>
 </div>
