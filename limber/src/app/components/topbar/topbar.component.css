@@ -1,0 +1,25 @@
+.topbar { height: 64px; padding: 0 20px; background: #fff; }
+
+.btn-icon{
+  width: 36px; height: 36px; border: 0; background: transparent;
+  display:flex; align-items:center; justify-content:center;
+}
+.notif-dot{
+  position:absolute; top:6px; right:6px; width:8px; height:8px; border-radius:50%;
+  background:#e53b3b; box-shadow: 0 0 0 2px #fff;
+}
+.user-name{ font-weight:600; color:rgba(79, 79, 79, 1); }
+
+.topbar {
+  height: 64px;
+  padding: 0 20px;
+  background: transparent;  /* pas de blanc, hérite du main */
+}
+
+.fw-semibold{
+  color:rgba(79, 79, 79, 1);
+}
+.bi-bell-fill{
+  font-size: 1.2rem;
+  color: rgba(151, 151, 151, 1)
+}

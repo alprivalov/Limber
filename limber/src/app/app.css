@@ -1,0 +1,6 @@
+main {
+  background:rgba(247, 242, 237, 0.8);   /* couleur du fond figma */
+  min-height: 100vh;     /* occupe toute la hauteur */
+  display: flex;
+  flex-direction: column;
+}

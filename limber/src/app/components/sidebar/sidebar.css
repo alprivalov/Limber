@@ -1,29 +1,44 @@
 .sidebar {
-  width: 200px;
   background: #fff;
-  min-height: 100vh;
   border-right: 1px solid #eee;
-  padding: 2rem 1rem 1rem 1rem;
+  min-height: 100vh;
+  width: 220px;
 }
-.logo {
-  text-align: center;
+
+.nav-link {
+  color: rgba(145, 145, 156, 1);
+  font-weight: 500;
+  transition: background 0.2s, color 0.2s;
+  border-radius: 40px; /* arrondi léger */
 }
-.nav-item {
-  padding: 0.75rem 1rem;
-  color: #888;
-  cursor: pointer;
-  border-radius: 8px;
-  margin-bottom: 0.5rem;
-  transition: background 0.2s;
-}
-.nav-item.active, .nav-item:hover {
-  background: #eaf3f7;
-  color: #1a1a1a;
+
+.nav-link.active,
+.nav-link:hover {
+  background: rgba(238, 244, 246, 1);
+  color: rgba(42, 122, 147, 1);
   font-weight: bold;
 }
-.icon {
-  width: 24px;
+
+/* Animation icons */
+.icon-wrap {
+  position: relative;
+  width: 22px;
+  height: 22px;
   display: inline-block;
-  text-align: center;
-  margin-right: 0.5rem;
+}
+
+.icon-wrap .bi {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: scale(.9);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.icon-wrap .bi.visible {
+  opacity: 1;
+  transform: scale(1);
 }

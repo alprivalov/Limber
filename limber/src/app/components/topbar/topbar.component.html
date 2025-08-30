@@ -1,0 +1,16 @@
+<header class="topbar d-flex align-items-center justify-content-between">
+  <h1 class="h4 m-0 fw-semibold">{{ pageTitle }}</h1>
+
+  <div class="d-flex align-items-center gap-3">
+    <button class="btn btn-icon position-relative" aria-label="Notifications">
+      <i class="bi bi-bell-fill"></i>
+      <span *ngIf="hasNotif" class="notif-dot"></span>
+    </button>
+
+    <div class="d-flex align-items-center gap-2">
+      <span class="user-name">{{ user.name }}</span>
+      <img [src]="user.avatarUrl" class="rounded-circle" width="32" height="32" alt="">
+      <i class="bi bi-chevron-down small text-muted"></i>
+    </div>
+  </div>
+</header>

@@ -1,13 +1,25 @@
-<aside class="sidebar">
-  <div class="logo mb-4">
+<aside class="sidebar d-flex flex-column align-items-start py-4 px-3 bg-white border-end">
+  <div class="w-100 text-center mb-4">
     <img src="assets/logo-limber.png" alt="Limber" width="90" />
   </div>
-  <ul class="nav flex-column">
-    <li *ngFor="let item of menu" [class.active]="item.active" class="nav-item">
-      <span class="icon me-2">
-        <i class="bi" [ngClass]="'bi-' + item.icon"></i>
-      </span>
-      {{ item.label }}
+
+  <ul class="nav flex-column w-100">
+    <li *ngFor="let item of menu" class="nav-item mb-1">
+      <a [routerLink]="item.route"
+        routerLinkActive="active"
+        [routerLinkActiveOptions]="{ exact: true }"
+        #rla="routerLinkActive"
+        class="nav-link d-flex align-items-center px-3 py-2 rounded">
+
+        <span class="icon-wrap me-2">
+          <!-- version vide -->
+          <i class="bi" [ngClass]="'bi-' + item.icon" [class.visible]="!rla.isActive"></i>
+          <!-- version remplie -->
+          <i class="bi" [ngClass]="'bi-' + item.iconFill" [class.visible]="rla.isActive"></i>
+        </span>
+
+        <span>{{ item.label }}</span>
+      </a>
     </li>
   </ul>
 </aside>
