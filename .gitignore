@@ -1,0 +1,10 @@
+# Angular
+.angular/
+node_modules/
+dist/
+out-tsc/
+
+# IDE
+.vscode/
+.idea/
+*.log

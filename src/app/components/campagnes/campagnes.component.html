@@ -1,7 +1,7 @@
 <div class="page p-4">
-  <!-- Header de section : Onglets + bouton à gauche / filtres à droite -->
+  <!-- Section header: Tabs + button on the left / filters on the right -->
   <div class="section-header d-flex justify-content-between align-items-center mb-3">
-    <!-- Gauche -->
+    <!-- Left -->
     <div class="d-flex align-items-center">
       <ul class="nav custom-tabs align-items-center mb-0">
         <li class="nav-item"><a class="nav-link active">Campagnes</a></li>
@@ -12,7 +12,7 @@
       <button class="btn btn-compagne ms-3">Nouvelle campagne</button>
     </div>
 
-    <!-- Droite -->
+    <!-- Right -->
     <div class="d-flex align-items-center gap-2">
       <select class="form-select form-select-sm custom-select-grey" style="width:180px;">
         <option>Date de création. desc.</option>
@@ -33,7 +33,7 @@
     </div>
   </div>
 
-  <!-- Tableau -->
+  <!-- Table -->
   <div class="card shadow-sm ">
     <div class="card-body p-4">
       <table class="table align-middle mb-0">
@@ -50,7 +50,7 @@
 
         <tbody >
           <tr *ngFor="let c of paged">
-            <!-- Nom + tags -->
+            <!-- Name + tags -->
             <td class="ps-0 py-3">
               <div class="campaign-title">{{ c.name }}</div>
               <div class="d-flex flex-wrap gap-2 mt-1">
@@ -71,7 +71,7 @@
               }
             </td>
 
-            <!-- Partages -->
+            <!-- Shares -->
             <td class="text-center align-middle">
               <div class="fw-semibold">{{ c.shares }}</div>
               @if (c.shares_pending) {
@@ -79,7 +79,7 @@
               }
             </td>
 
-            <!-- Clics / Contacts -->
+            <!-- Clicks / Contacts -->
             <td class="text-center align-middle">{{ c.clicks   | thousandSep }}</td>
             <td class="text-center align-middle">{{ c.contacts | thousandSep }}</td>
 
@@ -95,9 +95,9 @@
         </tbody>
       </table>
 
-      <!-- Footer : sélecteur page size + pagination -->
+      <!-- Footer: page size selector + pagination -->
       <div class="d-flex align-items-center justify-content-between pt-3 small table-footer">
-        <!-- Résultats par page -->
+        <!-- Results per page -->
         <div class="d-flex align-items-center gap-2">
           <div class="dropdown">
             <button
@@ -122,9 +122,9 @@
           </div>
         </div>
 
-        <!-- Pagination mini -->
+        <!-- Mini pagination -->
         <div class="btn-group pagination-ghost">
-          <!-- Flèche gauche visible seulement si page > 1 -->
+          <!-- Left arrow visible only if page > 1 -->
           <button
             *ngIf="currentPage > 1"
             class="btn btn-ghost btn-sm"
@@ -136,7 +136,7 @@
 
           <span class="page-indicator">{{ currentPage }} / {{ totalPages }}</span>
 
-          <!-- Flèche droite visible seulement si pas à la dernière page -->
+          <!-- Right arrow visible only if not on the last page -->
           <button
             *ngIf="currentPage < totalPages"
             class="btn btn-ghost btn-sm"

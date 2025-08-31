@@ -1,10 +1,14 @@
-/* ===== Fond page ===== */
+/* ===============================
+   Page layout & general styles
+   =============================== */
 .page {
   background: #f7f3ef;
   border-radius: 16px;
 }
 
-/* ===== Carte tableau ===== */
+/* ===============================
+   Card / Table container
+   =============================== */
 .card {
   border: 0;
   border-radius: 16px;
@@ -15,44 +19,49 @@
   background: #ffffff;
 }
 
-/* ====== TABLE  ====== */
-/* Corps : séparation par le bas de chaque ligne */
-
+/* ===============================
+   Table styles
+   =============================== */
+/* Last row bottom border */
 .table tbody tr:last-child {
   border-bottom: 1px solid #fff;
 }
 
-/* En-têtes */
+/* Header cells */
 .table thead th {
   color: rgba(79, 79, 79, 1);
   font-weight: 600;
   font-size: 14px;
-  padding-bottom: 30px; 
+  padding-bottom: 30px;
 }
 
+/* Body cells */
 .table td {
   font-weight: 600;
-  color: rgba(79,79,79,1);   
+  color: rgba(79, 79, 79, 1);
 }
 
-/* 2) Le texte "(x en attente)" */
+/* Secondary text in table (e.g. “x pending”) */
 .table td .text-muted {
-  color: rgba(151, 151, 151, 1) !important;  
-  font-weight: 400;                           
-  font-size: .875rem;                         
+  color: rgba(151, 151, 151, 1) !important;
+  font-weight: 400;
+  font-size: 0.875rem;
 }
 
-
-/* ===== Badges rouges ===== */
+/* ===============================
+   Badges
+   =============================== */
 .badge-red {
   background: rgba(217, 94, 84, 1);
   color: #fff;
   font-weight: 600;
-  padding: .35rem .6rem;
+  padding: 0.35rem 0.6rem;
   border-radius: 6px;
 }
 
-/* ===== Boutons ===== */
+/* ===============================
+   Buttons
+   =============================== */
 .btn-teal {
   background-color: #2c8590;
   border: none;
@@ -65,7 +74,9 @@
   justify-content: center;
   padding: 0;
 }
-.btn-teal:hover { background-color: #256d75; }
+.btn-teal:hover {
+  background-color: #256d75;
+}
 
 .btn-compagne {
   background-color: rgba(217, 94, 84, 1);
@@ -78,19 +89,26 @@
   border-radius: 6px;
   transition: background-color 0.2s ease-in-out;
 }
-.btn-compagne:hover { background-color: rgba(200, 80, 70, 1); }
-.btn-compagne:active { background-color: rgba(180, 70, 60, 1); }
+.btn-compagne:hover {
+  background-color: rgba(200, 80, 70, 1);
+}
+.btn-compagne:active {
+  background-color: rgba(180, 70, 60, 1);
+}
 
-/* ===== Tabs (Campagnes / Mots-clés) ===== */
-.custom-tabs { display: flex; align-items: center; }
+/* ===============================
+   Tabs (Campaigns / Keywords)
+   =============================== */
+.custom-tabs {
+  display: flex;
+  align-items: center;
+}
 
 .custom-tabs .nav-item {
-   margin: 0; 
+  margin: 0;
   font-weight: 500;
   font-size: 22px;
   line-height: 100%;
-  letter-spacing: 0%;
-  vertical-align: middle;
   color: rgba(79, 79, 79, 1);
 }
 
@@ -102,7 +120,10 @@
   padding: 0.5rem 0;
   position: relative;
 }
-.custom-tabs .nav-link.active { color: rgba(79, 79, 79, 1); font-weight: 600; }
+.custom-tabs .nav-link.active {
+  color: rgba(79, 79, 79, 1);
+  font-weight: 600;
+}
 .custom-tabs .nav-link.active::after {
   content: "";
   position: absolute;
@@ -113,7 +134,8 @@
   background-color: #2a8fa8;
   border-radius: 2px;
 }
-/* Séparateur vertical */
+
+/* Vertical separator between tabs */
 .custom-tabs .nav-separator {
   width: 1px;
   height: 20px;
@@ -121,38 +143,52 @@
   margin: 0 0.75rem;
 }
 
-/* ===== Formulaires (select + input) ===== */
+/* ===============================
+   Forms (select + input)
+   =============================== */
 .form-control,
-.form-select { height: 44px; }
+.form-select {
+  height: 44px;
+}
 
 .custom-select-grey {
   color: rgba(151, 151, 151, 1);
   font-weight: 400;
   font-size: 14px;
 }
+
 .custom-input-grey::placeholder {
   color: rgba(151, 151, 151, 1);
-  opacity: 1; 
+  opacity: 1;
 }
 
-/* ===== Dropdown (taille par page) ===== */
+/* ===============================
+   Dropdown (page size)
+   =============================== */
 .page-size-btn {
   background: #fdfdff;
   border: 1px solid rgba(235, 235, 235, 1);
   color: rgba(79, 79, 79, 1);
-  padding: .35rem .6rem;
+  padding: 0.35rem 0.6rem;
   font-weight: 500;
   border-radius: 6px;
 }
-.page-size-btn:focus { outline: 0; box-shadow: none; }
+.page-size-btn:focus {
+  outline: 0;
+  box-shadow: none;
+}
 
-.dropdown-menu { min-width: auto; }
+.dropdown-menu {
+  min-width: auto;
+}
 .dropdown-item.active {
   background: rgba(235, 235, 235, 1);
   color: rgba(151, 151, 151, 1);
 }
 
-/* ===== Pagination ===== */
+/* ===============================
+   Pagination
+   =============================== */
 .pagination-mini .btn {
   background: #fafafa;
   border: 1px solid #eee;
@@ -161,22 +197,24 @@
   font-weight: 500;
   min-width: 36px;
 }
-.pagination-mini .btn:disabled { opacity: 0.5; }
-.pagination-mini .btn i { font-size: 0.9rem; }
+.pagination-mini .btn:disabled {
+  opacity: 0.5;
+}
+.pagination-mini .btn i {
+  font-size: 0.9rem;
+}
 
 .pagination-ghost .btn-ghost {
   border: none;
   box-shadow: none;
-  padding: .35rem .6rem;
+  padding: 0.35rem 0.6rem;
 }
-.pagination-ghost .btn-ghost:hover { background: #eee; }
-
-.test{
-  background-color: red;
+.pagination-ghost .btn-ghost:hover {
+  background: #eee;
 }
 
 .page-indicator {
-  padding: .35rem .6rem;
+  padding: 0.35rem 0.6rem;
   background: rgba(253, 253, 255, 1);
   border: 1px solid rgba(235, 235, 235, 1);
   border-radius: 8px;
@@ -184,18 +222,22 @@
   color: rgba(79, 79, 79, 1);
 }
 
-/* ===== Titre campagne ===== */
-.campaign-title{
-  font-weight: 600;                  
-  font-size: 15px;                   
-  line-height: 1;                    
-  letter-spacing: 0;                 
-  color: rgba(79,79,79,1);          
-  margin-bottom: 10px;               
+/* ===============================
+   Campaign title
+   =============================== */
+.campaign-title {
+  font-weight: 600;
+  font-size: 15px;
+  line-height: 1;
+  color: rgba(79, 79, 79, 1);
+  margin-bottom: 10px;
 }
 
-/* Lisse le rendu de toutes les polices (utile sur Linux/Windows) */
-html, body{
+/* ===============================
+   Typography optimization
+   =============================== */
+html,
+body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;

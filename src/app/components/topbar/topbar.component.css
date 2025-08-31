@@ -1,31 +1,47 @@
-.topbar { height: 64px; padding: 0 20px; background: #fff; }
-
-.btn-icon{
-  width: 36px; height: 36px; border: 0; background: transparent;
-  display:flex; align-items:center; justify-content:center;
-}
-.notif-dot{
-  position:absolute; top:6px; right:6px; width:8px; height:8px; border-radius:50%;
-  background:#e53b3b; box-shadow: 0 0 0 2px #fff;
-}
-.user-name{ font-weight:600; color:rgba(79, 79, 79, 1); }
-
-.topbar {
+/* === Layout === */
+.topbar { 
   height: 64px;
   padding: 0 20px;
   background: transparent; 
 }
 
-.fw-semibold{
-  color:rgba(79, 79, 79, 1);
-}
-.bi-bell-fill{
-  font-size: 1.2rem;
-  color: rgba(151, 151, 151, 1)
-}
-.h4{
+/* === Typography === */
+.h4 {
   font-weight: 700;
-  color: rgba(79,79,79,1);
-  line-height: 1; 
-  font-size: 30px;         
+  font-size: 30px;
+  line-height: 1;
+  color: rgba(79, 79, 79, 1);
+}
+
+.user-name { 
+  font-weight: 600; 
+  color: rgba(79, 79, 79, 1); 
+}
+
+/* === Buttons & Icons === */
+.btn-icon {
+  width: 36px; 
+  height: 36px; 
+  border: 0; 
+  background: transparent;
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+
+.bi-bell-fill {
+  font-size: 1.2rem;
+  color: rgba(151, 151, 151, 1);
+}
+
+/* === Notification Dot === */
+.notif-dot {
+  position: absolute; 
+  top: 6px; 
+  right: 6px; 
+  width: 8px; 
+  height: 8px;
+  border-radius: 50%; 
+  background: #e53b3b; 
+  box-shadow: 0 0 0 2px #fff;
 }

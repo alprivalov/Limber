@@ -11,7 +11,7 @@ import { Router, RouterModule } from '@angular/router';
 })
 export class SidebarComponent {
   menu = [
-    { icon: 'house', iconFill: 'house-fill', label: 'Accueil', route: '' },
+    { icon: 'house', iconFill: 'house-fill', label: 'Accueil', route: 'Acceuil' },
     { icon: 'grid', iconFill: 'grid-fill', label: 'Murs', route: 'murs' },
     { icon: 'file-earmark-text', iconFill: 'file-earmark-text-fill', label: 'Contenus', route: 'contenus' },
     { icon: 'bookmark', iconFill: 'bookmark-fill', label: 'Campagnes', route: 'campagnes' },

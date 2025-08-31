@@ -10,7 +10,7 @@ import { ConversionComponent } from './components/conversion/conversion.componen
 import { StatistiquesComponent } from './components/statistiques/statistiques.component';
 
 export const routes: Routes = [
-  { path: '', component: AccueilComponent },
+  { path: 'Acceuil', component: AccueilComponent },
   { path: 'murs', component: MursComponent },
   { path: 'contenus', component: ContenusComponent },
   { path: 'campagnes', component: CampagnesComponent },
