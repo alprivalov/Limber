@@ -9,16 +9,14 @@
   color: rgba(145, 145, 156, 1);
   font-weight: 500;
   transition: background 0.2s, color 0.2s;
-  border-radius: 40px; /* arrondi léger */
+  border-radius: 40px; 
 }
 
 
 .sidebar .nav-link.active {
-  background-color: rgba(0, 113, 128, 0.1); /* ton fond bleu clair */
-  color: #006b75;                           /* couleur du texte/icon */
+  color: #006b75;
   font-weight: 600;
-  border-radius: 9999px;                    /* arrondi max (pill / pastille) */
-  padding: 0.5rem 1rem;                     /* espace autour du texte */
+  border-radius: 9999px;
 }
 
 .nav-link.active,
@@ -31,8 +29,8 @@
 /* Animation icons */
 .icon-wrap {
   position: relative;
-  width: 22px;
-  height: 22px;
+  width: 24px;
+  height: 24px;
   display: inline-block;
 }
 
