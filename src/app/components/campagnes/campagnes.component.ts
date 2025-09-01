@@ -18,6 +18,7 @@ export class CampagnesComponent implements OnInit {
   pageSize = 5;
   currentPage = 1;
 
+  pageSortOption = ["Descendent","Ascendent"];
   constructor(private campaignsService: CampaignsService) {}
 
   ngOnInit(): void {
@@ -31,6 +32,21 @@ export class CampagnesComponent implements OnInit {
       error: (err) => console.error('Error loading campaigns.json', err),
     });
   }
+
+  /** Interactions utilisateur */
+  onPageOptionChange(opt: String): void {
+    switch(opt){
+      case "Descendent":
+        this.campaignsService.sortByDescendentClicks(this.campagnes);
+        break;
+
+      case "Ascendent":
+        this.campaignsService.sortByAscendentClicks(this.campagnes);
+        break;
+    }
+  }
+
+
 
   /** Campagnes filtrées via le service */
   get filtered(): Campaign[] {
@@ -57,6 +73,8 @@ export class CampagnesComponent implements OnInit {
     this.pageSize = opt;
     this.currentPage = 1;
   }
+
+
 
   prevPage(): void {
     if (this.currentPage > 1) this.currentPage--;

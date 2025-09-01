@@ -37,6 +37,18 @@ export class CampaignsService {
   }
 
   /** Paginer une liste de campagnes */
+  sortByDescendentClicks(campaigns: Campaign[]): void{
+    campaigns.sort((campagnesFirst, campagnesSecond) => campagnesSecond.clicks - campagnesFirst.clicks);
+  }
+
+
+  /** Paginer une liste de campagnes */
+  sortByAscendentClicks(campaigns: Campaign[]): void{
+    campaigns.sort((campagnesFirst, campagnesSecond) => campagnesSecond.clicks + campagnesFirst.clicks);
+  }
+
+
+  /** Paginer une liste de campagnes */
   paginate(campaigns: Campaign[], page: number, pageSize: number): Campaign[] {
     const start = (page - 1) * pageSize;
     return campaigns.slice(start, start + pageSize);
